@@ -10,7 +10,7 @@ router.get("/connections", function (req, res, next) {
   restURL = restEndpoint + "/connections";
   axios.get(restURL)
     .then((resp) => {
-      console.log(resp.data);
+      //console.log(resp.data);
       res.send(resp.data);
     })
     .catch((error) => {
