@@ -6,12 +6,10 @@ router.get("/connections", function (req, res, next) {
   // Replace with IP of your ACA-Py server.
   restEndpoint = "http://52.188.211.100:8080";
   restURL = restEndpoint + "/connections";
-  axios
-    .get(restURL)
+  axios.get(restURL)
     .then((resp) => {
       console.log(resp.data);
       res.send(resp.data);
-      //resp.json({ message: 'Request received!', data })
     })
     .catch((error) => {
       console.error(error);
@@ -34,18 +32,12 @@ router.post("/connections", function (req, res, next) {
 
       // Replace with IP of your ACA-Py server.
       restEndpoint = "http://52.188.211.100:8080";
-      restURL =
-        restEndpoint +
-        "/connections/" +
-        req.body?.connection_id +
-        "/accept-request?my_endpoint=" +
-        encodeURI(restEndpoint);
+      restURL = restEndpoint + "/connections/" + req.body?.connection_id + "/accept-request?my_endpoint=" + encodeURI(restEndpoint);
       restData = {};
       restHeaders = {
         headers: {},
       };
-      axios
-        .post(restURL, restData, restHeaders)
+      axios.post(restURL, restData, restHeaders)
         .then((res) => {
           console.log("statusCode: ${res.status}");
         })
