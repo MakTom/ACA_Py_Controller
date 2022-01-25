@@ -2,12 +2,11 @@ var express = require("express");
 var router = express.Router();
 const axios = require("axios");
 
+// Replace with IP of your ACA-Py controller server.
+restEndpoint = "http://52.188.211.100:8080";
+
 router.get("/connections", function (req, res, next) {
-  // Replace with IP of your ACA-Py controller server.
 
-
-  console.log("INSIDE CONNECTIONS");
-  restEndpoint = "http://52.188.211.100:8080";
   restURL = restEndpoint + "/connections";
   axios.get(restURL)
     .then((resp) => {
@@ -17,7 +16,6 @@ router.get("/connections", function (req, res, next) {
     .catch((error) => {
       console.error(error);
     });
-  //res.status(200).send("OK");
 });
 
 router.post("/connections", function (req, res, next) {
@@ -34,7 +32,7 @@ router.post("/connections", function (req, res, next) {
       console.log("Send Accept-Requst to invitee");
 
       // Replace with IP of your ACA-Py controller server.
-      restEndpoint = "http://52.188.211.100:8080";
+      //restEndpoint = "http://52.188.211.100:8080";
       restURL = restEndpoint + "/connections/" + req.body?.connection_id + "/accept-request?my_endpoint=" + encodeURI(restEndpoint);
       restData = {};
       restHeaders = {
