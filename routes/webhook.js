@@ -17,7 +17,7 @@ router.get("/connections", function (req, res, next) {
     .catch((error) => {
       console.error(error);
     });
-  res.status(200).send("OK");
+  //res.status(200).send("OK");
 });
 
 router.post("/connections", function (req, res, next) {
