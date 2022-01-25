@@ -6,7 +6,6 @@ router.get("/connections", function (req, res, next) {
   // Replace with IP of your ACA-Py server.
   restEndpoint = "http://52.188.211.100:8080";
   restURL = restEndpoint + "/connections";
-
   axios
     .get(restURL)
     .then((resp) => {
@@ -17,7 +16,7 @@ router.get("/connections", function (req, res, next) {
     .catch((error) => {
       console.error(error);
     });
-  //res.status(200).send("OK");
+  res.status(200).send("OK");
 });
 
 router.post("/connections", function (req, res, next) {
