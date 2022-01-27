@@ -17,6 +17,21 @@ router.get("/connections", function (req, res, next) {
     });
 });
 
+
+router.post('/acceptrequest', async function(req, res, next) {
+  console.log("Accecpting Request!");
+  restURL = restEndpoint + '/connections/' + req.body?.connection_id + '/accept-request?my_endpoint=' + encodeURI(restEndpoint);
+  restData = {};
+  restHeaders = {
+    headers: {
+    }
+  };
+  const status = await axios.post(restURL, restData, restHeaders);
+  console.log("Status=", status.data);
+  res.status(200).send(status.data);
+});
+
+
 router.post("/connections", function (req, res, next) {
   console.log(req.body);
   state = req.body?.rfc23_state;
