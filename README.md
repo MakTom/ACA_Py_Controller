@@ -14,6 +14,7 @@ You will need to set your own IP address for your server that you are running th
             sudo apt upgrade  
             sudo apt install docker.io
             sudo apt install curl
+	    sudo apt-get install docker-compose
             sudo curl -L "https://github.com/docker/compose/releases/download/v2.2.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
             sudo chmod +x /usr/local/bin/docker-compose
             docker-compose -v
